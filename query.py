@@ -154,6 +154,11 @@ class Query():
         s += '\n'
         return s
 
+    def __str__(self):
+        return self.build()
+    def _repr_html_(self):
+        return f'<pre>{self.build()}</pre>'
+
     def build(self):
         if self._groupbys and self._add_groupbys_to_select:
             idx = 0
